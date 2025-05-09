@@ -38,6 +38,20 @@ function addToHistory(num1,num2,operator,result){
   calculatorHistory.push(calculationObject)
 }
 
-add(3,4)
+function displayHistory(array){
+  if(array.length === 0){
+    return "You have no stored calculations"
+  }
+  else{
+    for(i=0; i < array.length; i++){
+      let element = array[i]
+      console.log(`${element.Operand1} ${element.Operator} ${element.Operand2} = ${element.Result}`)
+    }
+  }
+}
 
-console.log(calculatorHistory)
+add(3,4)
+subtract(54,23)
+
+console.log(displayHistory(calculatorHistory))
+
