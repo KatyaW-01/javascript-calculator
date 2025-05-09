@@ -8,11 +8,13 @@ function add(a,b){
 
 function subtract(a,b){
   const result = a - b
+  addToHistory(a,b,'-',result)
   return result
 }
 
 function multiply(a,b){
   const result = a * b
+  addToHistory(a,b,'*',result)
   return result
 }
 
@@ -21,6 +23,7 @@ function divide(a,b){
     return "Error: cannot divide by zero"
   } else{
     const result = a/b
+    addToHistory(a,b,'/',result)
     return result
   }
 }
