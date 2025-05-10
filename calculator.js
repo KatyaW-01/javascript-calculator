@@ -71,8 +71,19 @@ function displayHistory(array){
     }
     return `Calculation History:\n${history}`
   }
-  
 }
 
+//edge cases
+console.log(add('number',90))
+console.log(divide(76,0))
+console.log(displayHistory(calculatorHistory))
+
+//function calls
+add(230,7)
+subtract(100,50)
+multiply(3,9)
+divide(25,5)
+
+//display calculation history
 console.log(displayHistory(calculatorHistory))
 
