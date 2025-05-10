@@ -1,33 +1,53 @@
 calculatorHistory = []
 
 function add(a,b){
-  const result = a + b
-  addToHistory(a,b,'+',result)
-  return result
-}
-
-function subtract(a,b){
-  const result = a - b
-  addToHistory(a,b,'-',result)
-  return result
-}
-
-function multiply(a,b){
-  const result = a * b
-  addToHistory(a,b,'*',result)
-  return result
-}
-
-function divide(a,b){
-  if(b === 0){
-    return "Error: cannot divide by zero"
-  } else{
-    const result = a/b
-    addToHistory(a,b,'/',result)
+  if(typeof(a)=== 'number' && typeof(b)==='number'){ //accounts for edge case of invalid arguments
+    const result = a + b
+    addToHistory(a,b,'+',result)
     return result
+  }
+  else{
+    return "Error: arguments must be numbers"
   }
 }
 
+function subtract(a,b){
+  if(typeof(a)=== 'number' && typeof(b)==='number'){ 
+    const result = a - b
+    addToHistory(a,b,'-',result)
+    return result
+  }
+  else{
+    return "Error: arguments must be numbers"
+  }
+}
+
+function multiply(a,b){
+  if(typeof(a)=== 'number' && typeof(b)==='number'){ 
+    const result = a * b
+    addToHistory(a,b,'*',result)
+    return result
+  }
+  else{
+     return "Error: arguments must be numbers"
+  }
+}
+
+function divide(a,b){
+  if(b === 0){ //accounts for edge case of dividing by zero
+    return "Error: cannot divide by zero"
+  } 
+  else if(typeof(a)=== 'number' && typeof(b)==='number'){
+    const result = a/b
+    addToHistory(a,b,'/',result)
+    return result
+  } 
+  else{
+    return "Error: arguments must be numbers"
+  }
+}
+
+//helper function that creates objects of the results and pushes to the calculator history array
 function addToHistory(num1,num2,operator,result){
   const calculationObject = {
     Operand1: num1,
@@ -38,6 +58,7 @@ function addToHistory(num1,num2,operator,result){
   calculatorHistory.push(calculationObject)
 }
 
+//function to display the calculation history
 function displayHistory(array){
   if(array.length === 0){
     return "You have no stored calculations"
@@ -48,13 +69,10 @@ function displayHistory(array){
       let element = array[i]
       history += `${element.Operand1} ${element.Operator} ${element.Operand2} = ${element.Result}\n`
     }
-    return `Calculator History:\n${history}`
+    return `Calculation History:\n${history}`
   }
   
 }
-
-add(3,4)
-subtract(54,23)
 
 console.log(displayHistory(calculatorHistory))
 
