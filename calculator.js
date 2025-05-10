@@ -43,11 +43,14 @@ function displayHistory(array){
     return "You have no stored calculations"
   }
   else{
+    let history = ""
     for(i=0; i < array.length; i++){
       let element = array[i]
-      console.log(`${element.Operand1} ${element.Operator} ${element.Operand2} = ${element.Result}`)
+      history += `${element.Operand1} ${element.Operator} ${element.Operand2} = ${element.Result}\n`
     }
+    return `Calculator History:\n${history}`
   }
+  
 }
 
 add(3,4)
